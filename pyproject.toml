@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ai-torrent-search"
+version = "0.1.0"
+description = "Model-assisted torrent metasearch with query expansion, deduplication, and reranking"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{name = "Suki-zy"}]
+keywords = ["torrent", "search", "langchain", "qwen", "metasearch", "asyncio"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Internet :: WWW/HTTP :: Indexing/Search",
+]
+dependencies = [
+    "beautifulsoup4>=4.12,<5",
+    "httpx>=0.28,<1",
+    "pydantic>=2.10,<3",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=9,<10"]
+qwen = ["dashscope>=1.20,<2"]
+langchain = [
+    "dashscope>=1.20,<2",
+    "langchain-core>=0.3,<2",
+    "langchain-openai>=0.3,<2",
+    "langchain-community>=0.3,<2",
+]
+
+[project.urls]
+Homepage = "https://github.com/Suki-zy/AI-Torrent-Search"
+Repository = "https://github.com/Suki-zy/AI-Torrent-Search"
+Issues = "https://github.com/Suki-zy/AI-Torrent-Search/issues"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+ai_torrent_search = ["py.typed"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
